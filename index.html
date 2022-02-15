@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300, regular,italic,700,700italic"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="container-two chat">
+          <div class="head">
+            <div class="settings">
+              <button class="settings-btn btn">Настройки</button>
+            </div>
+            <div class="exit">
+              <button class="exit-btn btn">Выйти</button>
+            </div>
+          </div>
+          <div class="middle">
+            <div class="text-message my">
+              <div class="message-text">Я: Добрый день!</div>
+              <div class="message-time">18:45</div>
+            </div>
+            <div class="text-message other">
+              <div class="message-text">
+                Собеседник мой: А это второе и, кажется, оно очень длинное,
+                чтобы поместиться на одной строке
+              </div>
+              <div class="message-time">18:45</div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="messages">
+              <input
+                class="message-input inp"
+                type="text"
+                placeholder="сообщение..."
+                value=""
+              />
+            </div>
+            <div class="sendmessages">
+              <button class="sendmessages-btn btn">-></button>
+            </div>
+          </div>
+        </div>
+        <div class="container-two settings-tree">
+          <div class="tree-inner">
+            <div class="tree-settings">
+              <p class="setting-text">Настройки</p>
+              <div class="setting-close">
+                <img
+                  class="setting-close__img"
+                  src="./image/x.png"
+                  alt="close"
+                />
+              </div>
+            </div>
+            <div class="name-inchat">Имя в чате</div>
+            <div class="setting-input">
+              <input
+                class="setting-input__name"
+                type="text"
+                placeholder="Стив"
+              />
+              <button class="setting-btn btn">-></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  background: #e5e5e5;
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+}
+.container {
+  margin: 0px auto;
+  max-width: 320px;
+}
+.container-two {
+  width: 100%;
+  min-height: 533px;
+  display: flex;
+  flex-direction: column;
+}
+.chat {
+  background-color: #fff;
+  margin: 0px auto;
+  padding: 9px;
+}
+.head {
+  /* padding: 9px; */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  max-height: 32px;
+}
+.settings {
+}
+.settings-btn {
+}
+.btn {
+  height: 32px;
+  background-color: #fff;
+  padding: 5px;
+}
+.btn:hover {
+  content: "";
+  transition: all 0.4s;
+  color: rgb(245, 248, 246);
+  background-color: rgb(22, 21, 21);
+}
+.exit {
+}
+.exit-btn {
+}
+.middle {
+  /* flex: 1 1 auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  border: 2px solid black;
+  min-height: 437px;
+  max-width: 307px;
+  margin-bottom: 7px;
+}
+.text-message {
+  max-width: fit-content;
+  background-color: #e5e5e5;
+  margin: 8px;
+  font-size: 16px;
+  padding: 5px;
+}
+.my {
+  align-self: end;
+}
+.other {
+  align-self: start;
+}
+.message-text {
+}
+.message-time {
+  display: flex;
+  justify-content: end;
+  color: #333333;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+.messages {
+}
+.message-input {
+  display: block;
+  width: 267px;
+  margin-right: 8px;
+}
+.inp {
+  height: 32px;
+}
+.sendmessages {
+}
+.sendmessages-btn {
+}
+.settings-tree {
+  background-color: #535353;
+  justify-content: center;
+  align-items: center;
+}
+.tree-inner {
+  height: 319px;
+  max-width: 273px;
+  background-color: #fff;
+  padding: 16px 14px;
+}
+.tree-settings {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.setting-text {
+}
+.setting-close {
+}
+.name-inchat {
+  margin-bottom: 8px;
+}
+.setting-input {
+}
+.setting-input__name {
+  height: 32px;
+}
+.setting-btn {
+}
