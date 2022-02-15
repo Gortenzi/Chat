@@ -74,9 +74,11 @@ body {
 }
 .my {
   align-self: end;
+  color: rgb(94, 3, 94);
 }
 .other {
   align-self: start;
+  color: rgb(14, 114, 69);
 }
 .message-text {
 }
