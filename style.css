@@ -43,6 +43,7 @@ body {
   height: 32px;
   background-color: #fff;
   padding: 5px;
+  cursor: pointer;
 }
 .btn:hover {
   content: "";
