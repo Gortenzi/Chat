@@ -25,6 +25,7 @@ body {
   background-color: #fff;
   margin: 9px auto;
   padding: 9px;
+  /* position: relative; */
 }
 .head {
   /* padding: 9px; */
@@ -69,6 +70,7 @@ body {
   min-height: 100%;
   width: 100%;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 .chat-message {
   max-width: fit-content;
@@ -80,10 +82,11 @@ body {
 .my {
   align-self: end;
   color: rgb(94, 3, 94);
+  background-color: #f3deee;
 }
 .other {
   align-self: start;
-  color: rgb(14, 114, 69);
+  color: rgb(6, 87, 51);
 }
 .message-text {
 }
@@ -113,25 +116,25 @@ body {
 }
 .sendmessages-btn {
 }
+.modal-settings {
+}
 .settings-modal {
-  width: 100%;
+  width: 320px;
   min-height: 533px;
-  display: flex;
-  flex-direction: column;
   background-color: rgba(83, 83, 83, 0.8);
-  justify-content: center;
-  align-items: center;
   display: none;
   z-index: 2;
-  top: 0;
-  left: 0;
   position: fixed;
+  top: 9px;
 }
 .settings-inner {
+  display: flex;
+  flex-direction: column;
   height: 319px;
   max-width: 273px;
   background-color: #fff;
   padding: 16px 14px;
+  transform: translate(9%, 32%);
 }
 .settings-head {
   display: flex;
