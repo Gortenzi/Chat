@@ -109,33 +109,55 @@ body {
 }
 .sendmessages-btn {
 }
-.settings-tree {
+.settings-modal {
+  width: 100%;
+  min-height: 533px;
+  display: flex;
+  flex-direction: column;
   background-color: #535353;
   justify-content: center;
   align-items: center;
+  /* display: none; */
 }
-.tree-inner {
+.settings-inner {
   height: 319px;
   max-width: 273px;
   background-color: #fff;
   padding: 16px 14px;
 }
-.tree-settings {
+.settings-head {
   display: flex;
   justify-content: space-between;
   margin-bottom: 14px;
 }
-.setting-text {
+.settings-text {
 }
-.setting-close {
+.settings-close {
+  border: none;
+  background-color: rgb(255, 255, 255);
+  background-image: url(./image/x.png);
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  background-size: 100%;
+  padding: 5px;
+  cursor: pointer;
+}
+.settings-close:hover {
+  content: "";
+  background-image: url(./image/x-r2.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  transition: all 0.3s;
 }
 .name-inchat {
   margin-bottom: 8px;
 }
-.setting-input {
+.settings-input {
 }
-.setting-input__name {
+.settings-input__name {
   height: 32px;
 }
-.setting-btn {
+.settings-btn {
 }
