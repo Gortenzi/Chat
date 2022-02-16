@@ -17,15 +17,13 @@ body {
   margin: 0px auto;
   max-width: 320px;
 }
-.container-two {
+.container-chat {
   width: 100%;
   min-height: 533px;
   display: flex;
   flex-direction: column;
-}
-.chat {
   background-color: #fff;
-  margin: 0px auto;
+  margin: 9px auto;
   padding: 9px;
 }
 .head {
@@ -56,17 +54,23 @@ body {
 .exit-btn {
 }
 .middle {
-  /* flex: 1 1 auto; */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: end;
-  border: 2px solid black;
-  min-height: 437px;
-  max-width: 307px;
   margin-bottom: 7px;
+  height: 437px;
+  max-width: 307px;
 }
-.text-message {
+.middle-chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  border: 2px solid black;
+  min-height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+.chat-message {
   max-width: fit-content;
   background-color: #e5e5e5;
   margin: 8px;
@@ -114,10 +118,14 @@ body {
   min-height: 533px;
   display: flex;
   flex-direction: column;
-  background-color: #535353;
+  background-color: rgba(83, 83, 83, 0.8);
   justify-content: center;
   align-items: center;
-  /* display: none; */
+  display: none;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  position: fixed;
 }
 .settings-inner {
   height: 319px;
