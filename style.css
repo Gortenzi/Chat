@@ -36,8 +36,22 @@ body {
 }
 .settings {
 }
-.settings-btn {
+.dropdown {
+  position: relative;
 }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+.drop-btn {
+  width: 100%;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .btn {
   height: 32px;
   background-color: #fff;
@@ -99,30 +113,30 @@ body {
 }
 
 .footer {
-  display: flex;
-  justify-content: space-between;
 }
 .messages {
 }
+.sendmessages {
+  display: flex;
+  justify-content: space-between;
+}
 .message-input {
-  display: block;
   width: 267px;
   margin-right: 8px;
 }
 .inp {
   height: 32px;
 }
-.sendmessages {
-}
+
 .sendmessages-btn {
 }
-.modal-settings {
-}
+
 .settings-modal {
   width: 320px;
   min-height: 533px;
   background-color: rgba(83, 83, 83, 0.8);
-  display: none;
+  /* display: none; */
+  visibility: hidden;
   z-index: 2;
   position: fixed;
   top: 9px;
@@ -143,7 +157,11 @@ body {
 }
 .settings-text {
 }
-.settings-close {
+.settings-text__autoconf {
+  margin-bottom: 70px;
+}
+
+.close-btn {
   border: none;
   background-color: rgb(255, 255, 255);
   background-image: url(./image/x.png);
@@ -154,7 +172,7 @@ body {
   padding: 5px;
   cursor: pointer;
 }
-.settings-close:hover {
+.close-btn:hover {
   content: "";
   background-image: url(./image/x-r2.png);
   background-repeat: no-repeat;
@@ -166,9 +184,23 @@ body {
   margin-bottom: 8px;
 }
 .settings-input {
+  display: flex;
+  justify-content: space-between;
 }
+.form__autoconf {
+  margin-bottom: 10px;
+  height: 32px;
+  width: 100%;
+}
+.input__value {
+  margin-bottom: 10px;
+  height: 32px;
+  width: 100%;
+}
+
 .settings-input__name {
   height: 32px;
+  width: 85%;
 }
 .settings-btn {
 }

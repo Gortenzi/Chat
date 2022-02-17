@@ -16,8 +16,17 @@
       <div class="container">
         <div class="container-chat">
           <div class="head">
-            <div class="settings">
-              <button class="settings-btn btn">Настройки</button>
+            <div class="settings dropdown">
+              <button class="dropbtn btn">Настройки</button>
+              <div class="dropdown-content">
+                <button class="drop-btn btn" data-path="one">Settings</button>
+                <button class="drop-btn btn" data-path="two">
+                  Autorization
+                </button>
+                <button class="drop-btn btn" data-path="tree">
+                  Confirmation
+                </button>
+              </div>
             </div>
             <div class="exit">
               <button class="exit-btn btn">Выйти</button>
@@ -26,14 +35,16 @@
           <div class="middle">
             <div class="middle-chat">
               <div class="chat-message my">
-                <div class="message-text">Я: Добрый день!</div>
+                <div class="message-text"><span>Я: Добрый день!</span></div>
                 <div class="message-time">18:45</div>
               </div>
 
               <div class="chat-message other">
                 <div class="message-text">
-                  Собеседник мой: А это второе и, кажется, оно очень длинное,
-                  чтобы поместиться на одной строке
+                  <span>
+                    Собеседник мой: А это второе и, кажется, оно очень длинное,
+                    чтобы поместиться на одной строке
+                  </span>
                 </div>
                 <div class="message-time">18:45</div>
               </div>
@@ -41,37 +52,62 @@
           </div>
           <div class="footer">
             <div class="messages">
-              <input
-                class="message-input inp"
-                type="text"
-                placeholder="сообщение..."
-                value=""
-              />
-            </div>
-            <div class="sendmessages">
-              <button class="sendmessages-btn btn">-></button>
-            </div>
-          </div>
-        </div>
-        <div class="modal-settings">
-          <div class="settings-modal">
-            <div class="settings-inner">
-              <div class="settings-head">
-                <p class="settings-text">Настройки</p>
-                <button class="settings-close"></button>
-              </div>
-              <div class="name-inchat">Имя в чате</div>
-              <div class="settings-input">
+              <form class="sendmessages" onsubmit="return false">
                 <input
-                  class="settings-input__name"
+                  class="message-input inp"
                   type="text"
-                  placeholder="Стив"
+                  placeholder="сообщение..."
+                  value=""
                 />
-                <button class="settings-btn btn">-></button>
-              </div>
+                <button class="sendmessages-btn btn">-></button>
+              </form>
             </div>
           </div>
         </div>
+
+        <!-- <div class="settings-modal settings" data-target="one">
+          <div class="settings-inner">
+            <div class="settings-head">
+              <p class="settings-text">Настройки</p>
+              <button class="close-btn"></button>
+            </div>
+            <div class="name-inchat">Имя в чате</div>
+            <form class="settings-input" type="input" onsubmit="return false">
+              <input
+                class="settings-input__name"
+                type="text"
+                placeholder="Стив"
+              />
+              <button class="settings-btn btn">-></button>
+            </form>
+          </div>
+        </div> -->
+        <div class="settings-modal autorization" data-target="two">
+          <div class="settings-inner">
+            <div class="settings-head">
+              <p class="settings-text__autoconf">Авторизация</p>
+              <button class="close-btn"></button>
+            </div>
+            <div class="name-inchat">Почта:</div>
+            <form class="form__autoconf" type="input" onsubmit="return false">
+              <input class="input__value" type="email" placeholder="email" />
+              <button class="settings-btn btn">Получить код</button>
+            </form>
+          </div>
+        </div>
+        <!-- <div class="settings-modal confirmation" data-target="tree">
+          <div class="settings-inner">
+            <div class="settings-head">
+              <p class="settings-text__autoconf">Подтверждение</p>
+              <button class="close-btn"></button>
+            </div>
+            <div class="name-inchat">Код:</div>
+            <form class="form__autoconf" type="input" onsubmit="return false">
+              <input class="input__value" type="text" placeholder="number" />
+              <button class="settings-btn btn">Войти</button>
+            </form>
+          </div>
+        </div> -->
       </div>
     </div>
     <script src="app.js"></script>
