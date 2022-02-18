@@ -200,6 +200,11 @@ body {
   height: 32px;
   width: 100%;
 }
+.input__code {
+  margin-bottom: 10px;
+  height: 32px;
+  width: 100%;
+}
 
 .settings-input__name {
   height: 32px;
