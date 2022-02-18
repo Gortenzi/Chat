@@ -141,6 +141,9 @@ body {
   position: fixed;
   top: 9px;
 }
+.active {
+  visibility: visible;
+}
 .settings-inner {
   display: flex;
   flex-direction: column;

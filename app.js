@@ -1,52 +1,30 @@
-const settingsModal = document.querySelector('.settings-modal')
-const closeBtn = document.querySelector('.close-btn')
-const settingsBtn = document.querySelector('.drop-btn')
-
-settingsBtn.addEventListener('click', ()=>{
-    settingsModal.style.visibility= 'visible'
-})
-closeBtn.addEventListener('click', ()=>{
-    settingsModal.style.visibility = 'hidden'
-})
+import {getCode, inputEmail, formInput } from './post.js'
 
 
-// document.querySelectorAll('.drop-btn').forEach((el)=> {
-    //     el.addEventListener('click', (e) => {
-        //         let path = e.currentTarget.getAttribute('data-path');
+const settingsModal = document.querySelectorAll('.settings-modal')
+const closeBtn = document.querySelectorAll('.close-btn')
+const btns = document.querySelectorAll('.drop-btn') 
+
+btns.forEach((el)=> {
+        el.addEventListener('click', (e) => {
+                let path = e.currentTarget.getAttribute('data-path')
         
-        //         console.log(path)
-        //         console.log(e.currentTarget)
-        //     })
-        //         settingsModal.forEach((el) => { 
-            //     el(`[data-target="${path}"]`).style.visibility= 'visible'})
-            
-            // })
-            // closeBtn.addEventListener('click', ()=>{
-                //     settingsModal.style.visibility = 'hidden'
-                // })
-                
- const urlPost = 'https://chat1-341409.oa.r.appspot.com/api/user'
-const inputEmail = document.querySelector('.input__value')
-const formInput = document.querySelector('.form__autoconf')
-
-const getCode = async () => {
-    try {
-        const response = await fetch(urlPost, {
-         method: 'POST',
-         headers: {
-           'Content-Type': 'application/json'
-           },
-           body: JSON.stringify({
-            email: inputEmail.value
+                settingsModal.forEach((el) => {
+                    el.classList.remove('active');
             })
-         });
-         const data = await response.json();
-     
-         console.log(data);
-       } catch(error) {
-           console.log(error)
-    } finally {
-        inputEmail.form.reset()
-    }
-     }
-    formInput.addEventListener('submit', getCode )
+                settingsModal.forEach((el) => { 
+             document.querySelector(`[data-target="${path}"]`).classList.add('active')})
+            
+            })
+        });
+       
+         closeBtn.forEach((el) =>{
+       el.addEventListener('click', ()=> {
+        settingsModal.forEach((el) => {
+            el.classList.remove('active')
+          
+        })
+        }) 
+    })
+
+           
