@@ -1,7 +1,7 @@
 // import 'regenerator-runtime/runtime'
 import {getCode, inputEmail, formInput } from "./post.js"
 import {settingsModal, closeBtn, btns } from "./modal.js"
-import {sendmessagesBtn, getTime} from "./template.js"
+import {sendmessagesBtn} from "./template.js"
 // import Cookies from 'js-cookie'
 
 

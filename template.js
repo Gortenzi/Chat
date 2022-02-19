@@ -1,5 +1,5 @@
 export const sendmessagesBtn = document.querySelector('.sendmessages-btn')
-function sendMyMessage(){
+export function sendMyMessage(){
 
   const message = document.querySelector('.message-input').value;
   const chat = document.querySelector('.middle-chat');
