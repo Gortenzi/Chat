@@ -16,7 +16,8 @@ document.querySelector('.inp').form.reset()
 }
 
 sendmessagesBtn.addEventListener('click', (e) => {
-if(e.code ==="Enter") sendMyMessage();
+  if(document.querySelector('.message-input').value =='') return;
+else if(e.code ==="Enter") sendMyMessage();
 sendMyMessage() 
 })
 
