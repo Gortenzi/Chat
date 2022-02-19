@@ -7,6 +7,7 @@ export const getCode = async () => {
         const response = await fetch(urlPost, {
          method: 'POST',
          headers: {
+             
            'Content-Type': 'application/json'
            },
            body: JSON.stringify({
@@ -23,3 +24,4 @@ export const getCode = async () => {
     }
      }
     formInput.addEventListener('submit', getCode )
+   

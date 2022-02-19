@@ -1,0 +1,27 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel app.js",
+    "build": "parcel build app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gortenzi/Chat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gortenzi/Chat/issues"
+  },
+  "homepage": "https://github.com/Gortenzi/Chat#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.1"
+  }
+}
