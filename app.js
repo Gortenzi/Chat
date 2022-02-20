@@ -8,7 +8,7 @@ import Cookies from 'js-cookie'
 const url = 'https://chat1-341409.oa.r.appspot.com/api/user';
 const formForName = document.querySelector('.form__conf')
 const inputCode =  document.querySelector('.input__code').value
-const myName = {
+const userName = {
   name: document.querySelector('.settings-input__name').value
 }
 Cookies.set('magic-code', 'inputCode' )
