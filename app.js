@@ -7,13 +7,12 @@ import Cookies from 'js-cookie'
 
 const url = 'https://chat1-341409.oa.r.appspot.com/api/user';
 const formForName = document.querySelector('.form__conf')
-const userName = document.querySelector('.settings-input__name').value
 const inputCode =  document.querySelector('.input__code').value
+const myName = {
+  name: document.querySelector('.settings-input__name').value
+}
 Cookies.set('magic-code', 'inputCode' )
- const myName = {
-     name: userName
-   }
-   const token = Cookies.get('magic-code')
+const token = Cookies.get('magic-code')
    
 
 
@@ -27,7 +26,7 @@ const setName = async () => {
           'Content-Type': 'application/json;charset=UTF-8',
            'Authorization': `Bearer ${token}`,
            },
-           body: JSON.stringify(myName),
+           body: JSON.stringify(userName),
           
           });
 
