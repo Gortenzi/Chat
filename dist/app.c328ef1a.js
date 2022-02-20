@@ -979,6 +979,45 @@ closeBtn.forEach(function (el) {
     });
   });
 });
+},{}],"template.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getTime = void 0;
+exports.sendMyMessage = sendMyMessage;
+exports.sendmessagesBtn = void 0;
+var sendmessagesBtn = document.querySelector('.sendmessages-btn');
+exports.sendmessagesBtn = sendmessagesBtn;
+
+function sendMyMessage() {
+  var message = document.querySelector('.message-input').value;
+  var chat = document.querySelector('.middle-chat');
+  var templ = document.querySelector('#templ');
+  var txt = templ.content.querySelector('span');
+  var time = templ.content.querySelector('.message-time');
+  txt.textContent = "I: ".concat(message);
+  time.textContent = getTime();
+  var elem = templ.content.cloneNode(true);
+  chat.append(elem);
+  document.querySelector('.inp').form.reset();
+}
+
+sendmessagesBtn.addEventListener('click', function (e) {
+  if (document.querySelector('.message-input').value == '') return;else if (e.code === "Enter") sendMyMessage();
+  sendMyMessage();
+});
+
+var getTime = function getTime() {
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  return "".concat(hours, ":").concat(minutes);
+};
+
+exports.getTime = getTime;
 },{}],"node_modules/js-cookie/dist/js.cookie.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
@@ -1143,6 +1182,8 @@ var _post = require("./post.js");
 
 var _modal = require("./modal.js");
 
+var _template = require("./template.js");
+
 var _jsCookie = _interopRequireDefault(require("js-cookie"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -1151,64 +1192,65 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var urlPatch = 'https://chat1-341409.oa.r.appspot.com/api/user';
+var url = 'https://chat1-341409.oa.r.appspot.com/api/user';
 var formForName = document.querySelector('.form__conf');
+var userName = document.querySelector('.settings-input__name').value;
+var inputCode = document.querySelector('.input__code').value;
+
+_jsCookie.default.set('magic-code', 'inputCode');
+
+var myName = {
+  name: userName
+};
+
+var token = _jsCookie.default.get('magic-code');
 
 var setName = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var userName, inputCode, token, response, data;
+    var patchResponse, data;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            userName = document.querySelector('.settings-input__name').value;
-            console.log(userName);
-            inputCode = document.querySelector('.input__code').value;
-            console.log(inputCode);
-
-            _jsCookie.default.set('magic-code', 'inputCode');
-
-            token = _jsCookie.default.get('magic-code');
-            _context.prev = 6;
-            _context.next = 9;
-            return fetch(urlPatch, {
+            _context.prev = 0;
+            _context.next = 3;
+            return fetch(url, {
               method: 'PATCH',
-              mode: 'no-cors',
               headers: {
                 'Accept': 'aplication/json',
-                'Access-Control-Allow-Origin': 'https://chat1-341409.oa.r.appspot.com/api/user',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8',
                 'Authorization': "Bearer ".concat(token)
               },
-              body: {
-                'name': "".concat(userName)
-              }
+              body: JSON.stringify(myName)
             });
 
-          case 9:
-            response = _context.sent;
-            _context.next = 12;
-            return response.json();
+          case 3:
+            patchResponse = _context.sent;
+            _context.next = 6;
+            return patchResponse.json();
 
-          case 12:
+          case 6:
             data = _context.sent;
-            return _context.abrupt("return", JSON.stringify(data));
+            console.log(data); // return JSON.stringify(data);
 
-          case 17:
-            _context.prev = 17;
-            _context.t0 = _context["catch"](6);
+            _context.next = 13;
+            break;
+
+          case 10:
+            _context.prev = 10;
+            _context.t0 = _context["catch"](0);
             console.log(_context.t0);
 
-          case 20:
-            _context.prev = 20;
-            return _context.finish(20);
+          case 13:
+            _context.prev = 13;
+            return _context.finish(13);
 
-          case 22:
+          case 15:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[6, 17, 20, 22]]);
+    }, _callee, null, [[0, 10, 13, 15]]);
   }));
 
   return function setName() {
@@ -1217,7 +1259,7 @@ var setName = /*#__PURE__*/function () {
 }();
 
 formForName.addEventListener('submit', setName);
-},{"regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js","./post.js":"post.js","./modal.js":"modal.js","js-cookie":"node_modules/js-cookie/dist/js.cookie.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js","./post.js":"post.js","./modal.js":"modal.js","./template.js":"template.js","js-cookie":"node_modules/js-cookie/dist/js.cookie.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1245,7 +1287,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62424" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61860" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
