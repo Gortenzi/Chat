@@ -1192,65 +1192,65 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var url = 'https://chat1-341409.oa.r.appspot.com/api/user';
 var formForName = document.querySelector('.form__conf');
-var userName = document.querySelector('.settings-input__name').value;
-var inputCode = document.querySelector('.input__code').value;
-
-_jsCookie.default.set('magic-code', 'inputCode');
-
-var myName = {
-  name: userName
-};
-
-var token = _jsCookie.default.get('magic-code');
 
 var setName = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var patchResponse, data;
+    var inputCode, userName, token, url, patchResponse, data;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.prev = 0;
-            _context.next = 3;
+            inputCode = document.querySelector('.input__code').value;
+            userName = document.querySelector('.settings-input__name').value;
+
+            _jsCookie.default.set('magic-code', 'inputCode');
+
+            token = _jsCookie.default.get('magic-code');
+            url = 'https://chat1-341409.oa.r.appspot.com/api/user';
+            console.log(userName);
+            console.log(inputCode);
+            _context.prev = 7;
+            _context.next = 10;
             return fetch(url, {
               method: 'PATCH',
               headers: {
                 'Accept': 'aplication/json',
-                'Content-Type': 'application/json;charset=UTF-8',
+                'Content-Type': 'application/jsonn',
                 'Authorization': "Bearer ".concat(token)
               },
-              body: JSON.stringify(myName)
+              body: JSON.stringify({
+                name: userName
+              })
             });
 
-          case 3:
+          case 10:
             patchResponse = _context.sent;
-            _context.next = 6;
+            _context.next = 13;
             return patchResponse.json();
 
-          case 6:
+          case 13:
             data = _context.sent;
             console.log(data); // return JSON.stringify(data);
 
-            _context.next = 13;
+            _context.next = 20;
             break;
 
-          case 10:
-            _context.prev = 10;
-            _context.t0 = _context["catch"](0);
+          case 17:
+            _context.prev = 17;
+            _context.t0 = _context["catch"](7);
             console.log(_context.t0);
 
-          case 13:
-            _context.prev = 13;
-            return _context.finish(13);
+          case 20:
+            _context.prev = 20;
+            return _context.finish(20);
 
-          case 15:
+          case 22:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 10, 13, 15]]);
+    }, _callee, null, [[7, 17, 20, 22]]);
   }));
 
   return function setName() {
@@ -1287,7 +1287,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61860" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60071" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

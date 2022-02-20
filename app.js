@@ -5,28 +5,31 @@ import {sendmessagesBtn} from "./template.js"
 import Cookies from 'js-cookie'
 
 
-const url = 'https://chat1-341409.oa.r.appspot.com/api/user';
+
+
 const formForName = document.querySelector('.form__conf')
-const inputCode =  document.querySelector('.input__code').value
-const userName = {
-  name: document.querySelector('.settings-input__name').value
-}
-Cookies.set('magic-code', 'inputCode' )
-const token = Cookies.get('magic-code')
-   
 
 
 const setName = async () => {
 
-    try {
+const inputCode =  document.querySelector('.input__code').value
+const userName = document.querySelector('.settings-input__name').value
+ 
+Cookies.set('magic-code', 'inputCode' )
+const token = Cookies.get('magic-code')
+  const url = 'https://chat1-341409.oa.r.appspot.com/api/user';
+  
+  console.log(userName)
+  console.log(inputCode)
+  try {
         const patchResponse = await fetch(url, {
          method: 'PATCH',
          headers: {
-          'Accept': 'aplication/json',
-          'Content-Type': 'application/json;charset=UTF-8',
+           'Accept': 'aplication/json',
+           'Content-Type': 'application/jsonn',
            'Authorization': `Bearer ${token}`,
            },
-           body: JSON.stringify(userName),
+           body: JSON.stringify({name:userName}),
           
           });
 
@@ -43,6 +46,6 @@ const setName = async () => {
     
    
  
-   
+     
 
   
