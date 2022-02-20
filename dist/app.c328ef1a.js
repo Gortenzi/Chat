@@ -1196,32 +1196,32 @@ var formForName = document.querySelector('.form__conf');
 
 var setName = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var inputCode, userName, token, url, patchResponse, data;
+    var urlPatch, inputCode, userName, token, patchResponse, data;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            inputCode = document.querySelector('.input__code').value;
+            urlPatch = 'https://chat1-341409.oa.r.appspot.com/api/user';
+            inputCode = document.querySelector('.input__code');
             userName = document.querySelector('.settings-input__name').value;
 
-            _jsCookie.default.set('magic-code', 'inputCode');
+            _jsCookie.default.set('magic-code', inputCode.value);
 
             token = _jsCookie.default.get('magic-code');
-            url = 'https://chat1-341409.oa.r.appspot.com/api/user';
             console.log(userName);
-            console.log(inputCode);
+            console.log(token);
             _context.prev = 7;
             _context.next = 10;
-            return fetch(url, {
+            return fetch(urlPatch, {
               method: 'PATCH',
+              body: JSON.stringify({
+                'name': userName
+              }),
               headers: {
                 'Accept': 'aplication/json',
-                'Content-Type': 'application/jsonn',
+                'Content-Type': 'application/json',
                 'Authorization': "Bearer ".concat(token)
-              },
-              body: JSON.stringify({
-                name: userName
-              })
+              }
             });
 
           case 10:
@@ -1231,8 +1231,7 @@ var setName = /*#__PURE__*/function () {
 
           case 13:
             data = _context.sent;
-            console.log(data); // return JSON.stringify(data);
-
+            console.log(JSON.stringify(data));
             _context.next = 20;
             break;
 
@@ -1243,14 +1242,15 @@ var setName = /*#__PURE__*/function () {
 
           case 20:
             _context.prev = 20;
+            inputCode.form.reset();
             return _context.finish(20);
 
-          case 22:
+          case 23:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[7, 17, 20, 22]]);
+    }, _callee, null, [[7, 17, 20, 23]]);
   }));
 
   return function setName() {
@@ -1287,7 +1287,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60071" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61596" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
