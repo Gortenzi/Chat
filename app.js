@@ -45,14 +45,15 @@ import {sendmessagesBtn} from "./template.js"
     //  const token = Cookies.get('magic-code')
      
  
- 
+ // POST request
   UI_REQUEST.FORM_INPUT.addEventListener('submit', () =>{
       const body = {
         email: UI_REQUEST.INPUT_EMAIL.value
       }
-  //  getRequest(METHOD.POST, UI_REQUEST.URL_POST, body)
-   getRequest('POST', UI_REQUEST.URL_POST, body)
+    getRequest('POST', UI_REQUEST.URL_POST, body)
     })
+
+// PATCH request
 
 
     // UI_REQUEST_FORM_FOR_NAME.addEventListener('submit', setName )
