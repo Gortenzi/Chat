@@ -1,4 +1,4 @@
 /apptest.js
-/.cache
-node_modules
-dist
+.cache/
+node_modules/
+dist/
