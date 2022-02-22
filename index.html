@@ -35,25 +35,33 @@
           <div class="middle">
             <div class="middle-chat">
               <div class="chat-message my">
-                <div class="message-text"><span>Я: Добрый день!</span></div>
+                <div class="message-text__my"><span>Я: Добрый день!</span></div>
                 <div class="message-time">18:45</div>
               </div>
               <template id="templ">
                 <div class="chat-message my">
-                  <div class="message-text"><span></span></div>
-                  <div class="message-time">18:45</div>
+                  <div class="message-text__my"><span></span></div>
+                  <div class="message-time__my">18:45</div>
                 </div>
               </template>
 
               <div class="chat-message other">
-                <div class="message-text">
+                <div class="message-text__other">
                   <span>
                     Собеседник мой: А это второе и, кажется, оно очень длинное,
                     чтобы поместиться на одной строке
                   </span>
                 </div>
-                <div class="message-time">18:45</div>
+                <div class="message-time__other">18:45</div>
               </div>
+              <template id="templ-other">
+                <div class="chat-message other">
+                  <div class="message-text__other">
+                    <span> </span>
+                  </div>
+                  <div class="message-time__other">18:45</div>
+                </div>
+              </template>
             </div>
           </div>
           <div class="footer">

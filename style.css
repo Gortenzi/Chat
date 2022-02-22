@@ -103,9 +103,11 @@ body {
   align-self: start;
   color: rgb(6, 87, 51);
 }
-.message-text {
+.message-text__my {
 }
-.message-time {
+.message-text__other {
+}
+.message-time__my.message-time__other {
   display: flex;
   justify-content: end;
   color: #333333;
