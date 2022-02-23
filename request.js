@@ -30,9 +30,9 @@ export const getRequest = async (method, url, body = null, token = null) => {
             })
            
            const data = await response.json();
-         renderOtherMessage(data);
+        //  renderOtherMessage(data);
             console.log(data);
-            //  return data;
+             return data;
         }catch(error) {
             console.log(error)
         }finally {
@@ -62,5 +62,6 @@ export const getRequest = async (method, url, body = null, token = null) => {
 }
    
 };
+
 
 

@@ -1001,11 +1001,9 @@ var getRequest = /*#__PURE__*/function () {
 
           case 10:
             data = _context.sent;
-            (0, _template.renderOtherMessage)(data);
-            console.log(data); //  return data;
-
-            _context.next = 18;
-            break;
+            //  renderOtherMessage(data);
+            console.log(data);
+            return _context.abrupt("return", data);
 
           case 15:
             _context.prev = 15;
@@ -1267,7 +1265,10 @@ var _jsCookie = _interopRequireDefault(require("js-cookie"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import {getCode, inputEmail, formInput } from "./post.js"
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 // POST request
 _request.UI_REQUEST.FORM_INPUT.addEventListener('submit', function () {
   var body = {
@@ -1291,24 +1292,47 @@ _request.UI_REQUEST.FORM_FOR_CODE.addEventListener('submit', function () {
   };
   (0, _request.getRequest)('PATCH', _request.UI_REQUEST.URL_PATCH, body, token);
 }); // GET request
-// UI_REQUEST.FORM_FOR_CODE.addEventListener('submit', () =>{
-//   const chatName = document.querySelector('.settings-input__name').value
-//   Cookies.set(chatName, UI_REQUEST.INPUT_CODE.value)
-//  const token = Cookies.get(chatName)
-//   getRequest('GET', UI_REQUEST.URL_GET, null, token)
-//   
-// })
 
 
-var chatOther = function chatOther() {
-  var chatName = document.querySelector('.settings-input__name').value;
+var chatOther = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var chatName, token, responsFromFetch;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return document.querySelector('.settings-input__name').value;
 
-  _jsCookie.default.set(chatName, _request.UI_REQUEST.INPUT_CODE.value);
+          case 2:
+            chatName = _context.sent;
 
-  var token = _jsCookie.default.get(chatName);
+            _jsCookie.default.set(chatName, _request.UI_REQUEST.INPUT_CODE.value);
 
-  return (0, _request.getRequest)('GET', _request.UI_REQUEST.URL_GET, null, token);
-};
+            _context.next = 6;
+            return _jsCookie.default.get(chatName);
+
+          case 6:
+            token = _context.sent;
+            _context.next = 9;
+            return (0, _request.getRequest)('GET', _request.UI_REQUEST.URL_GET, null, token).then();
+
+          case 9:
+            responsFromFetch = _context.sent;
+            return _context.abrupt("return", (0, _template.renderOtherMessage)(responsFromFetch));
+
+          case 11:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function chatOther() {
+    return _ref.apply(this, arguments);
+  };
+}();
 
 _request.UI_REQUEST.FORM_FOR_CODE.addEventListener('submit', chatOther);
 },{"regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js","./request.js":"request.js","./modal.js":"modal.js","./template.js":"template.js","js-cookie":"node_modules/js-cookie/dist/js.cookie.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -1339,7 +1363,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52019" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55078" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

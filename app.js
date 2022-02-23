@@ -2,7 +2,7 @@ import 'regenerator-runtime/runtime'
 // import {getCode, inputEmail, formInput } from "./post.js"
 import {UI_REQUEST, getRequest} from "./request.js"
 import {settingsModal, closeBtn, btns } from "./modal.js"
-import {sendmessagesBtn} from "./template.js"
+import {sendmessagesBtn, renderOtherMessage} from "./template.js"
 import Cookies from 'js-cookie'
 
 
@@ -33,23 +33,17 @@ const body ={
 
 // GET request
 
-// UI_REQUEST.FORM_FOR_CODE.addEventListener('submit', () =>{
-//   const chatName = document.querySelector('.settings-input__name').value
-//   Cookies.set(chatName, UI_REQUEST.INPUT_CODE.value)
-//  const token = Cookies.get(chatName)
-//   getRequest('GET', UI_REQUEST.URL_GET, null, token)
-//   
-// })
-const chatOther = () => {
-  const chatName = document.querySelector('.settings-input__name').value
-    Cookies.set(chatName, UI_REQUEST.INPUT_CODE.value)
-   const token = Cookies.get(chatName)
-   
-  return getRequest('GET', UI_REQUEST.URL_GET, null, token)
-  
-  
-} 
 
+const  chatOther = async () => {
+   const chatName = await document.querySelector('.settings-input__name').value
+    Cookies.set(chatName, UI_REQUEST.INPUT_CODE.value)
+   const token = await Cookies.get(chatName)
+   //  return getRequest('GET', UI_REQUEST.URL_GET, null, token).then();
+  const responsFromFetch = await getRequest('GET', UI_REQUEST.URL_GET, null, token).then();
+  return  renderOtherMessage(responsFromFetch)
+  
+  } 
+  
 UI_REQUEST.FORM_FOR_CODE.addEventListener('submit', chatOther)
 
 
